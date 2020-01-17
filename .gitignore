@@ -1,0 +1,17 @@
+.vscode/
+!.gitkeep
+
+build/**
+!build/.gitkeep
+
+tools/binaries/**
+!tools/binaries/.gitkeep
+
+tools/binaries/**
+!tools/binaries/.gitkeep
+
+tools/packaged/**
+!tools/packaged/.gitkeep
+
+lib/XMC**
+!lib/.gitkeep

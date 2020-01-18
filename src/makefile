@@ -38,14 +38,15 @@ LIBS := -lm
 
 ## The source files
 ## Add here additional sources which should be compiled
-C_SRCS := 	$(shell find "$(XMC_LIB)src" -name '*.cpp' -or -name '*.c' -or -name '*.s' -or -name '*.S') \
-			$(shell find "$(CMSIS_GCC)" -name '*.cpp' -or -name '*.c' -or -name '*.s' -or -name '*.S') \
-			$(shell find "$(CMSIS_GCC).." -maxdepth 1 -name '*.cpp' -or -name '*.c' -or -name '*.s' -or -name '*.S') \
-			$(shell find "$(NEWLIB)" -name '*.cpp' -or -name '*.c' -or -name '*.s' -or -name '*.S') \
+C_SRCS := 	$(shell find "$(XMC_LIB)src" -name '*.c' -or -name '*.s' -or -name '*.S') \
+			$(shell find "$(CMSIS_GCC)" -name '*.c' -or -name '*.s' -or -name '*.S') \
+			$(shell find "$(CMSIS_GCC).." -maxdepth 1 -name '*.c' -or -name '*.s' -or -name '*.S') \
+			$(shell find "$(NEWLIB)" -name '*.c' -or -name '*.s' -or -name '*.S') \
 			$(ROOT_DIR)main.c
 
 ## The object files
 OBJS_E := $(C_SRCS:.c=.o)
+OBJS_E := $(OBJS_E:.s=.o)
 OBJS_E := $(OBJS_E:.S=.o)
 OBJS = $(foreach obj, $(OBJS_E), $(BUILD)$(obj:./../%=%))
 

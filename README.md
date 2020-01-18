@@ -62,7 +62,7 @@ $ Setup
 
 $ # This command pipes anything following it to the Docker image
 $ # Can be used to execute commands directly in the container 
-$ D|
+$ D:
 $ # This command pipes to the Docker image the make command
 $ # Can be used like make command (with relative path from repository root ./)
 $ make
@@ -141,7 +141,7 @@ $ Setup
 
 $ # This command pipes anything following it to the Docker image
 $ # Can be used to execute commands directly in the container 
-$ D#
+$ D:
 $ # This command pipes to the Docker image the make command
 $ # Can be used like make command (with relative path from repository root ./)
 $ make
@@ -162,4 +162,4 @@ $ Clean
 A test script is provided to test the environment after having it set up.
 You can execute the script and it will tell you whether you can run builds or tools/commands are missing.
 
-The Bash script can be found in `/test/testEnvironment.sh`
+The Bash script can be found in `/test/testEnvironment.sh`.

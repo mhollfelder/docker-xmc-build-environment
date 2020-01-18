@@ -34,14 +34,17 @@ In order to start developing with this repository, the following programs must b
 
 ## Quick start
 
-In order to quickly start development, please execute the following commands from a Bash environment, e.g. Git Bash on Windows:
+In order to quickly start development, please execute the following commands from a Bash environment from the repository root folder `./`, e.g. with Git Bash on Windows:
 
 ```bash
 $ source ./tools/scripts/setupEnvironment.sh
+$ source ./test/testEnvironment.sh
 $ Setup
 ```
 
-This will set up the build environment, create the Docker image if not already done, download the XMC Peripheral Library v2.1.24 and extract it to `/lib` plus trigger additional steps.
+The script `setupEnvironment.sh` will set up the build environment, create the Docker image if not already done, download the XMC Peripheral Library v2.1.24 and extract it to `/lib` plus trigger additional steps.
+
+The script `testEnvironment.sh` runs tests of the environment and checks that everything is up and running smoothly.
 
 After successful execution, the following commands will be available from the Bash console:
 
@@ -59,7 +62,7 @@ $ Setup
 
 $ # This command pipes anything following it to the Docker image
 $ # Can be used to execute commands directly in the container 
-$ D#
+$ D|
 $ # This command pipes to the Docker image the make command
 $ # Can be used like make command (with relative path from repository root ./)
 $ make
@@ -153,3 +156,10 @@ $ List
 $ # Clean make target (executed directly)
 $ Clean
 ```
+
+#### Test script
+
+A test script is provided to test the environment after having it set up.
+You can execute the script and it will tell you whether you can run builds or tools/commands are missing.
+
+The Bash script can be found in `/test/testEnvironment.sh`

@@ -135,8 +135,8 @@ Setup() {
 }
 
 make() {
-    echo "### Command: docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/" $*"
-    docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/" "$*"
+    echo "### Command: docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/ $*"
+    docker exec -it xmc-build-env-inst make -C "./src/" "$*"
     if [ $? = 1 ]; 
         then
             echo "### Command cannot be executed..."
@@ -147,8 +147,8 @@ make() {
 }
 
 All() {
-    echo "### Command: docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/" all"
-    docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/" all
+    echo "### Command: docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/ all"
+    docker exec -it xmc-build-env-inst make -C "./src/" all
     if [ $? = 1 ]; 
         then
             echo "### Command cannot be executed..."
@@ -159,8 +159,8 @@ All() {
 }
 
 Size() {
-    echo "### Command: docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/" size"
-    docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/" size
+    echo "### Command: docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/ size"
+    docker exec -it xmc-build-env-inst make -C "./src/" size
     if [ $? = 1 ]; 
         then
             echo "### Command cannot be executed..."
@@ -171,8 +171,8 @@ Size() {
 }
 
 List() {
-    echo "### Command: docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/" list"
-    docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/" list
+    echo "### Command: docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/ list"
+    docker exec -it xmc-build-env-inst make -C "./src/" list
     if [ $? = 1 ]; 
         then
             echo "### Command cannot be executed..."
@@ -183,8 +183,8 @@ List() {
 }
 
 Clean() {
-    echo "### Command: docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/" clean"
-    docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/" clean
+    echo "### Command: docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/ clean"
+    docker exec -it xmc-build-env-inst make -C "./src/" clean
     if [ $? = 1 ]; 
         then
             echo "### Command cannot be executed..."

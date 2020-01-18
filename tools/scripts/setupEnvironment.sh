@@ -136,7 +136,19 @@ Setup() {
 
 make() {
     echo "### Command: docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/ $*"
-    docker exec -it xmc-build-env-inst make -C "./src/" "$*"
+    docker exec -it xmc-build-env-inst make -C "./src/" $*
+    if [ $? = 1 ]; 
+        then
+            echo "### Command cannot be executed..."
+            echo "### Build environment running?"
+            echo "### Try executing Setup again..."
+            return 1
+    fi
+}
+
+D#() {
+    echo "### Command: docker exec -it xmc-build-env-inst $*"
+    docker exec -it xmc-build-env-inst $*
     if [ $? = 1 ]; 
         then
             echo "### Command cannot be executed..."

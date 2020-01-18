@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Bash wrapper for the build environment
 
 # https://stackoverflow.com/a/246128

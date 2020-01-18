@@ -114,6 +114,15 @@ $(BUILD)%.o: ../%.S $(BUILD)%.d
 	@echo 'Finished building: $<'
 	@echo
 
+## Assembler files to object files
+$(BUILD)%.o: ../%.s $(BUILD)%.d
+	@echo 'Building file: $<'
+	@echo 'Invoking: ARM-GCC Assembler'
+	mkdir -p $(dir $(@))
+	"$(ARM_TOOLCHAIN)$(CC)" $(AS_FLAGS) -MMD -MT "$@" -D$(MCU)$(PACKAGE)$(VARIANT) $(INCLUDE) -Wa,-adhlns="$@.lst" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$(@)" "$<" 
+	@echo 'Finished building: $<'
+	@echo
+
 ## Include the dependency files
 $(DEPFILES):
 include $(wildcard $(DEPFILES))

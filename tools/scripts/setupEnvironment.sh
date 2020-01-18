@@ -89,15 +89,15 @@ RefreshLib() {
 
 Kill() {
     echo "### Trying to stop the Docker container..."
-    echo "### Command: docker stop xmc-build-env-inst"
-    docker stop xmc-build-env-inst
+    echo "### Command: docker stop xmc-build-env"
+    docker stop xmc-build-env
     if [ $? = 1 ]; 
         then
             echo "### Container cannot be stopped, maybe already stopped..."
     fi
     echo "### Removing the (stopped) Docker container..."
-    echo "### Command: docker rm xmc-build-env-inst"
-    docker rm xmc-build-env-inst
+    echo "### Command: docker rm xmc-build-env"
+    docker rm xmc-build-env
     if [ $? = 1 ]; 
         then
             echo "### Container cannot be removed, maybe already removed..."
@@ -109,19 +109,19 @@ Kill() {
 }
 
 Setup() {
-    echo "### Command: docker run -d -ti --rm --name xmc-build-env-inst --mount type=bind,source=${DIR}/../../src/,target=/home/dev/src,readonly --mount type=bind,source=${DIR}/../../lib/,target=/home/dev/lib,readonly --mount type=bind,source=${DIR}/../../build/,target=/home/dev/build xmc-build-env > /dev/null"
-    docker run -d -ti --rm --name xmc-build-env-inst --mount type=bind,source="${DIR}"/../../src/,target=/home/dev/src,readonly --mount type=bind,source="${DIR}"/../../lib/,target=/home/dev/lib,readonly --mount type=bind,source="${DIR}"/../../build/,target=/home/dev/build xmc-build-env > /dev/null
+    echo "### Command: docker run -d -ti --rm --name xmc-build-env --mount type=bind,source=${DIR}/../../src/,target=/home/dev/src,readonly --mount type=bind,source=${DIR}/../../lib/,target=/home/dev/lib,readonly --mount type=bind,source=${DIR}/../../build/,target=/home/dev/build xmc-build-env > /dev/null"
+    docker run -d -ti --rm --name xmc-build-env --mount type=bind,source="${DIR}"/../../src/,target=/home/dev/src,readonly --mount type=bind,source="${DIR}"/../../lib/,target=/home/dev/lib,readonly --mount type=bind,source="${DIR}"/../../build/,target=/home/dev/build xmc-build-env > /dev/null
     if [ $? = 0 ]; 
         then
             echo "### Docker environment successfully started..."
             echo "### Running containers..."
-            echo "### Command: ocker ps -f name=xmc-build-env-inst"
-            docker ps -f name=xmc-build-env-inst
+            echo "### Command: ocker ps -f name=xmc-build-env"
+            docker ps -f name=xmc-build-env
             return 0
     fi
     Kill
-    echo "### Command: docker run -d -ti --rm --name xmc-build-env-inst --mount type=bind,source=${DIR}/../../src/,target=/home/dev/src,readonly --mount type=bind,source=${DIR}/../../lib/,target=/home/dev/lib,readonly --mount type=bind,source=${DIR}/../../build/,target=/home/dev/build xmc-build-env > /dev/null"
-    docker run -d -ti --rm --name xmc-build-env-inst --mount type=bind,source="${DIR}"/../../src/,target=/home/dev/src,readonly --mount type=bind,source="${DIR}"/../../lib/,target=/home/dev/lib,readonly --mount type=bind,source="${DIR}"/../../build/,target=/home/dev/build xmc-build-env > /dev/null
+    echo "### Command: docker run -d -ti --rm --name xmc-build-env --mount type=bind,source=${DIR}/../../src/,target=/home/dev/src,readonly --mount type=bind,source=${DIR}/../../lib/,target=/home/dev/lib,readonly --mount type=bind,source=${DIR}/../../build/,target=/home/dev/build xmc-build-env > /dev/null"
+    docker run -d -ti --rm --name xmc-build-env --mount type=bind,source="${DIR}"/../../src/,target=/home/dev/src,readonly --mount type=bind,source="${DIR}"/../../lib/,target=/home/dev/lib,readonly --mount type=bind,source="${DIR}"/../../build/,target=/home/dev/build xmc-build-env > /dev/null
     if [ $? != 0 ]; 
         then
             echo "### Docker environment could not be started..."
@@ -129,14 +129,14 @@ Setup() {
     fi
     echo ""
     echo "### Running container..."
-    echo "### Command: docker ps -f name=xmc-build-env-inst"
-    docker ps -f name=xmc-build-env-inst
+    echo "### Command: docker ps -f name=xmc-build-env"
+    docker ps -f name=xmc-build-env
     return 1
 }
 
 make() {
-    echo "### Command: docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/ $*"
-    docker exec -it xmc-build-env-inst make -C "./src/" $*
+    echo "### Command: docker exec -it xmc-build-env make -C "${DIR}"/../../src/ $*"
+    docker exec -it xmc-build-env make -C "./src/" $*
     if [ $? = 1 ]; 
         then
             echo "### Command cannot be executed..."
@@ -146,9 +146,9 @@ make() {
     fi
 }
 
-D#() {
-    echo "### Command: docker exec -it xmc-build-env-inst $*"
-    docker exec -it xmc-build-env-inst $*
+D:() {
+    echo "### Command: docker exec -it xmc-build-env $*"
+    docker exec -it xmc-build-env $*
     if [ $? = 1 ]; 
         then
             echo "### Command cannot be executed..."
@@ -159,8 +159,8 @@ D#() {
 }
 
 All() {
-    echo "### Command: docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/ all"
-    docker exec -it xmc-build-env-inst make -C "./src/" all
+    echo "### Command: docker exec -it xmc-build-env make -C "${DIR}"/../../src/ all"
+    docker exec -it xmc-build-env make -C "./src/" all
     if [ $? = 1 ]; 
         then
             echo "### Command cannot be executed..."
@@ -171,8 +171,8 @@ All() {
 }
 
 Size() {
-    echo "### Command: docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/ size"
-    docker exec -it xmc-build-env-inst make -C "./src/" size
+    echo "### Command: docker exec -it xmc-build-env make -C "${DIR}"/../../src/ size"
+    docker exec -it xmc-build-env make -C "./src/" size
     if [ $? = 1 ]; 
         then
             echo "### Command cannot be executed..."
@@ -183,8 +183,8 @@ Size() {
 }
 
 List() {
-    echo "### Command: docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/ list"
-    docker exec -it xmc-build-env-inst make -C "./src/" list
+    echo "### Command: docker exec -it xmc-build-env make -C "${DIR}"/../../src/ list"
+    docker exec -it xmc-build-env make -C "./src/" list
     if [ $? = 1 ]; 
         then
             echo "### Command cannot be executed..."
@@ -195,8 +195,8 @@ List() {
 }
 
 Clean() {
-    echo "### Command: docker exec -it xmc-build-env-inst make -C "${DIR}"/../../src/ clean"
-    docker exec -it xmc-build-env-inst make -C "./src/" clean
+    echo "### Command: docker exec -it xmc-build-env make -C "${DIR}"/../../src/ clean"
+    docker exec -it xmc-build-env make -C "./src/" clean
     if [ $? = 1 ]; 
         then
             echo "### Command cannot be executed..."

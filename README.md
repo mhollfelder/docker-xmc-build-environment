@@ -55,7 +55,7 @@ $ # Must be executed before any other below command
 $ Setup
 
 $ # This command pipes to the Docker image make
-$ # Can be used as the normal make command
+$ # Can be used like make command (with relative path from repository root ./)
 $ make
 
 $ # Makefile targets
@@ -97,6 +97,9 @@ For the build environment, a container with the tag `xmc-build-env-inst` is gene
 
 When the container is launched, the folders `lib`, `src` are mounted readable, output files are stored in `build` which is mounted read+writable.
 
+The Docker container have the same root folder with the same folder structure.
+Hence, you can directly reference to the folders with `./`.
+
 #### Compiler
 
 We are using the `ARM-GCC-49` in Docker which is the same one as the one shipped with [Dave](https://infineoncommunity.com/dave-download_ID645), the official XMC development platform.
@@ -128,7 +131,9 @@ $ # Must be executed before any other below command
 $ Setup
 
 $ # This command pipes to the Docker image make
-$ # Can be used as the normal make command
+$ # Can be used like make command (with relative path from repository root ./)
+$ # Please keep in mind that this runs inside the Docker container directly, also for paths
+$ # Absolute paths are not supported as they would mix local system and container system
 $ make
 
 $ # Makefile targets

@@ -1,6 +1,6 @@
 # Embedded development environment for XMC with Docker
 
-It sounds simple, but we are compiling C and C++ files OS independently to binaries for your ARM Cortex-M microcontroller here using Docker!
+It sounds simple, but we are compiling source files OS independently to binaries for your ARM Cortex-M microcontroller here using Docker!
 
 ## Intro
 

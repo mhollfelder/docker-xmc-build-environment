@@ -53,10 +53,10 @@ $ # Redownload the XMC library to /lib
 $ # Not checked out in repository due to the size
 $ RefreshLib
 
-$ # Kill a running Docker instance of xmc-build-env-inst
-$ # xmc-build-env-inst is the tag of the build image
+$ # Kill a running Docker instance of xmc-build-env
+$ # xmc-build-env is the tag of the build image
 $ Kill
-$ # Setup the Docker container xmc-build-env-inst
+$ # Setup the Docker container xmc-build-env
 $ # Must be executed before any other below command
 $ Setup
 
@@ -102,7 +102,7 @@ The Dockerfile can be found in `/tools/docker` with more details.
 Builds are done in a container and are visible on the host machine directly in the `/build` folder.
 This provides a portable toolchain independent of the underlying OS and results in consistend builds across different platforms.
 
-For the build environment, a container with the tag `xmc-build-env-inst` is generated and started.
+For the build environment, a container with the tag `xmc-build-env` is generated and started.
 
 When the container is launched, the folders `/lib`, `/src` are mounted readable, output files are stored in `/build` which is mounted read+writable.
 
@@ -132,10 +132,10 @@ $ # Redownload the XMC library to /lib
 $ # Not checked out in repository due to the size
 $ RefreshLib
 
-$ # Kill a running Docker instance of xmc-build-env-inst
-$ # xmc-build-env-inst is the tag of the build image
+$ # Kill a running Docker instance of xmc-build-env
+$ # xmc-build-env is the tag of the build image
 $ Kill
-$ # Setup the Docker container xmc-build-env-inst
+$ # Setup the Docker container xmc-build-env
 $ # Must be executed before any other below command
 $ Setup
 

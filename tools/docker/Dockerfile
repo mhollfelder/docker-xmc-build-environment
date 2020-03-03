@@ -4,7 +4,7 @@ FROM i386/ubuntu:19.04
 # Author of file:
 LABEL maintainer="Manuel Hollfelder <guessbean@gmail.com>"
 
-# Update (and upgrade) the package manager as well as install Python & FFMPEG:
+# Update (and upgrade) the package manager as well as install make, wget, libncurses5:
 RUN apt-get update && \
     # apt-get upgrade && \
     apt-get install -y make wget libncurses5 && \
